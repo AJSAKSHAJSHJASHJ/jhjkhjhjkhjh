@@ -7,23 +7,26 @@
     <style>
       body {
         background: linear-gradient(109.6deg, rgb(235, 173, 254) 11.2%, rgb(254, 150, 150) 90.4%);
-        margin: 120px;
+        margin: 5%;
         text-align: center;
         position: relative;
       }
+
       #envelope {
-        width: 700px;
-        height: 400px;
+        width: 90%; /* Use percentage for responsive width */
+        max-width: 700px; /* Set maximum width */
+        height: 60vh; /* Use viewport height for responsive height */
         background-color: #ab6f30;
         border: 2px solid #ccc;
         position: relative;
         overflow: visible;
-        transition: height 1s;
-        margin-left: 178px;
+        margin: 0 auto; /* Center the envelope */
+		transition: height 0.5s;
       }
+
       #flap {
         width: 100%;
-        height: 100px;
+        height: 14%; /* Use percentage for responsive height */
         background-color: #825627;
         position: absolute;
         top: 0;
@@ -32,26 +35,24 @@
         transform: perspective(600px) rotateX(0deg);
         transition: transform 1s;
       }
+
       #things {
         position: absolute;
-        top: 20px;
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
+        top: 5%;
+        left: 5%;
+        right: 5%;
+        bottom: 5%;
         background-color: white;
         opacity: 0;
-        transition: opacity 0.5s 1s;
+		transition: opacity 0.5s 0.5s;
       }
-      #cont {
-        margin: 20px;
-        text-align: left;
-      }
+
       .unfolded #flap {
         transform: perspective(600px) rotateX(-180deg);
       }
 
       .unfolded #envelope {
-        height: 300px;
+        height: 40vh; /* Adjust the unfolded height */
       }
 
       .unfolded #things {
@@ -65,14 +66,32 @@
 
       #SOC {
         transition: all 0.3s ease;
-        height: 40px;
+        height: 5vh; /* Use viewport height for responsive height */
         border: 0px;
         border-radius: 10px;
         position: relative;
       }
-	  .shan {
-		background-image: url("teddy.jpeg");
-	  }
+#cont {
+  margin: 2vh;
+  text-align: left;
+  display: flex;
+  flex-direction: column; /* Align children in a row */
+  justify-content: space-between; /* Distribute space between children */
+  align-items: center; /* Center items vertically */
+  max-height: 65vh; /* Set a maximum height to control overflow */
+  overflow: auto; /* Enable scrollbar when content exceeds the height */
+}
+
+img {
+  max-width: 100%; /* Ensure the image does not exceed the container width */
+  display: flex;
+  flex-direction: row;
+}
+#mira {
+  margin-top: 10vh; /* Adjust the margin-top value based on your preference */
+}
+
+
     </style>
   </head>
 
@@ -80,12 +99,14 @@
     <div id="envelope">
       <div id="flap"></div>
       <div id="things">
-        <div id="cont">
+	    <img src="tulip.jpeg" height="100" width="100" style="float: right;"></img>
+        <div id="cont" class="clearfix">
           <h1>Hi HJHAJHSJAHSJ</h1>
-          <p style="clear: both; overflow: auto;">HWAHHAHAHSHAHS HELLO, gusto ko lang sabihin ulit na thank you ket napaka dami kong pinoproblema or inooverthink, di ko maiwasan e HWAHJHSJAHJHSJHJSJSHJ, proud ako sayo lagi, basta tandaan mo lang na pwede ka mag open up sakin ket ano pa yan, kung nabobother ka, or may problem ka, galit ka, or may gusto ka, or may need ako baguhin, maging open lang tayo sana lagi ket ano pang problema, mas maayos na pagusapan bago magdecide... Ikaw laging pipilin. HWJAHJSHJHJHSJHDHSJHASJ. DI PA KASI AKO NAKA IPON PARA SA REGALO, kaya ito nalang muna ginawa ko WHJAHJHSJAHJSHJHJSHJHAJHJS. 147 lines, and ilang beses ko lang naman to inulit kasi ayaw gumana :) HSJAHSJHAJSHAJSHJ yun langgggg</p>
-		  <img src="tulip.jpeg" height="100" width="100" style="float: right; clear: right;"></img>
-		  <br>
-          <button onclick="dom()" class="shan">Pindutin mo to pagtapos mo na basahin</button>
+          <p style="clear: both; overflow: auto;"> <!-- Consider moving inline styles to the CSS -->
+            HWAHHAHAHSHAHS HELLO, gusto ko lang sabihin ulit na thank you ket napaka dami kong pinoproblema or inooverthink, di ko maiwasan e HWAHJHSJAHJHSJHJSJSHJ, proud ako sayo lagi, basta tandaan mo lang na pwede ka mag open up sakin ket ano pa yan, kung nabobother ka, or may problem ka, galit ka, or may gusto ka, or may need ako baguhin, maging open lang tayo sana lagi ket ano pang problema, mas maayos na pagusapan bago magdecide... Ikaw laging pipilin. HWJAHJSHJHJHSJHDHSJHASJ. DI PA KASI AKO NAKA IPON PARA SA REGALO, kaya ito nalang muna ginawa ko WHJAHJHSJAHJSHJHJSHJHAJHJS. 147 lines, and ilang beses ko lang naman to inulit kasi ayaw gumana :) HSJAHSJHAJSHAJSHJ yun langgggg
+          </p>
+          <br>
+          <button onclick="dom()">Pindutin mo to pagtapos mo na basahin</button>
         </div>
       </div>
     </div>
@@ -126,14 +147,14 @@
         let b = document.getElementById("SOC");
 
         if (b) {
-  b.style.position = "absolute";
-  b.addEventListener('mouseover', function () {
-    let randX = Math.random() * 1000;
-    let randY = Math.random() * 700;
+          b.style.position = "absolute";
+          b.addEventListener('mouseover', function () {
+            let randX = Math.random() * 500;
+            let randY = Math.random() * 350;
 
-    b.style.left = randX + "px";
-    b.style.top = randY + "px";
-  });
+            b.style.left = randX + "px";
+            b.style.top = randY + "px";
+          });
         } else {
           console.error("Button not found");
         }
@@ -141,6 +162,3 @@
     </script>
   </body>
 </html>
-
-
-
